@@ -13,6 +13,7 @@ int main()
     cout << "Laboratory work #4. GIT\n";
     cout << "Variant #2. Conference Subscription\n";
     cout << "Author: Vladislav Fedotov\n";
+
     lecture_subscription* subscriptions[MAX_FILE_ROWS_COUNT];
     int size;
     try
@@ -59,5 +60,8 @@ int main()
     {
         cout << error << '\n';
     }
+
+    cout << "Group: 24\n";
+
     return 0;
 }
