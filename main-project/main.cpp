@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,16 +18,36 @@ int main()
     try
     {
         read("data.txt", subscriptions, size);
+        cout << "***** ƒоклады конференции *****\n\n";
         for (int i = 0; i < size; i++)
         {
-            cout << subscriptions[i]->finish.hours << ':';
-            cout << subscriptions[i]->finish.minutes << ' ';
-            cout << subscriptions[i]->start.hours << ':';
-            cout << subscriptions[i]->start.minutes << ' ';
-            cout << subscriptions[i]->author.last_name << '\n';
-            cout << subscriptions[i]->author.first_name << '\n';
-            cout << subscriptions[i]->author.middle_name << '\n';
-            cout << subscriptions[i]->title << '\n';
+            /********** вывод доклада **********/
+            cout << "ƒоклад...........: ";
+            // вывод фамилии автора
+            cout << subscriptions[i]->author.last_name << " ";
+            // вывод первой буквы имени автора
+            cout << subscriptions[i]->author.first_name[0] << ". ";
+            // вывод первой буквы отчества автора
+            cout << subscriptions[i]->author.middle_name[0] << ".";
+            cout << ", ";
+            // вывод названи€
+            cout << '"' << subscriptions[i]->title << '"';
+            cout << '\n';
+            /********** вывод времени начала доклада **********/
+            // вывод часов
+            cout << "¬рем€ начала доклада.....: ";
+            cout << setw(4) << setfill('0') << subscriptions[i]->start.hours << ':';
+            // вывод минут
+            cout << setw(2) << setfill('0') << subscriptions[i]->start.minutes;
+            cout << '\n';
+            /********** вывод времени конца доклада **********/
+            // вывод часов
+            cout << "¬рем€ конца доклада...: ";
+            cout << setw(4) << setfill('0') << subscriptions[i]->finish.hours << ':';
+            // вывод минут
+            cout << setw(2) << setfill('0') << subscriptions[i]->finish.minutes;
+            
+            cout << '\n';
             cout << '\n';
         }
         for (int i = 0; i < size; i++)
