@@ -3,7 +3,7 @@
 
 #include "constants.h"
 
-struct time
+struct period
 {
     int hours;
     int minutes;
@@ -18,8 +18,8 @@ struct person
 
 struct lecture_subscription
 {
-    time start;
-    time finish;
+    period start;
+    period finish;
     person author;
     char title[MAX_STRING_SIZE];
 };
