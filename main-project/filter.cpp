@@ -18,12 +18,13 @@ lecture_subscription** filter(lecture_subscription* array[], int size, bool (*ch
 
 bool check_lecture_subscription_by_author(lecture_subscription* element)
 {
-	return element->author.first_name == "Иван" &&
-		element->author.middle_name == "Иванович" &&
-		element->author.last_name == "Иванов";
+	return strcmp(element->author.first_name, "Иван") == 0 &&
+		strcmp(element->author.middle_name, "Иванович") == 0 &&
+		strcmp(element->author.last_name, "Иванов") == 0;
+
 }
 
-bool check_book_subscription_by_period(lecture_subscription* element)
+bool check_lecture_subscription_by_period(lecture_subscription* element)
 {
-	return  element->start.hours > 0 || element->start.minutes >= 15;
+	return  (element ->finish.hours - element->start.hours > 0) || (element -> finish.minutes - element->start.minutes > 15);
 }
